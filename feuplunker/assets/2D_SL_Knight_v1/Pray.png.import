@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lj2u10r06vlr"
-path="res://.godot/imported/Golem_Running_strip12.png-d82f8f0db1d2d65b62b9e0bb60f6495b.ctex"
+uid="uid://djbo5pds48lft"
+path="res://.godot/imported/Pray.png-85cffff545a275934a3537a6a212989d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Kauzz Cave Tiles/Sprites/Golem_Running_strip12.png"
-dest_files=["res://.godot/imported/Golem_Running_strip12.png-d82f8f0db1d2d65b62b9e0bb60f6495b.ctex"]
+source_file="res://assets/2D_SL_Knight_v1/Pray.png"
+dest_files=["res://.godot/imported/Pray.png-85cffff545a275934a3537a6a212989d.ctex"]
 
 [params]
 

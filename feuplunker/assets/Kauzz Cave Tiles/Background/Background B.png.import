@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpajja4k2rvhp"
-path="res://.godot/imported/spr_golem_walking_strip23.png-a66e61c7115b74f52ea2fa136f18d3bc.ctex"
+uid="uid://biu58dma7tjwu"
+path="res://.godot/imported/Background B.png-8913ba62118cce6f9709058d6766951d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Kauzz Cave Tiles/Sprites/spr_golem_walking_strip23.png"
-dest_files=["res://.godot/imported/spr_golem_walking_strip23.png-a66e61c7115b74f52ea2fa136f18d3bc.ctex"]
+source_file="res://assets/Kauzz Cave Tiles/Background/Background B.png"
+dest_files=["res://.godot/imported/Background B.png-8913ba62118cce6f9709058d6766951d.ctex"]
 
 [params]
 

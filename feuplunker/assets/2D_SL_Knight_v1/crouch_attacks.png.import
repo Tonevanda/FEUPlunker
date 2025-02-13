@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biu58dma7tjwu"
-path="res://.godot/imported/Background B.png-66733b3c55ddcdf4ad99e1a3784ae86c.ctex"
+uid="uid://oh63ylt5j1hi"
+path="res://.godot/imported/crouch_attacks.png-13f587398109ba85bd886f9e9f28a1db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Kauzz Cave Tiles/Background/Background B.png"
-dest_files=["res://.godot/imported/Background B.png-66733b3c55ddcdf4ad99e1a3784ae86c.ctex"]
+source_file="res://assets/2D_SL_Knight_v1/crouch_attacks.png"
+dest_files=["res://.godot/imported/crouch_attacks.png-13f587398109ba85bd886f9e9f28a1db.ctex"]
 
 [params]
 

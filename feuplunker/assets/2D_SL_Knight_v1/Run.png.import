@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://udts6s3sfoij"
-path="res://.godot/imported/Golem_Heavy_Breath_strip11.png-3f81dcd826671406482a4dc7833c2b6b.ctex"
+uid="uid://1cpfc4sv2evb"
+path="res://.godot/imported/Run.png-1dd547e23f2580aa988b30f7b556226f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Kauzz Cave Tiles/Sprites/Golem_Heavy_Breath_strip11.png"
-dest_files=["res://.godot/imported/Golem_Heavy_Breath_strip11.png-3f81dcd826671406482a4dc7833c2b6b.ctex"]
+source_file="res://assets/2D_SL_Knight_v1/Run.png"
+dest_files=["res://.godot/imported/Run.png-1dd547e23f2580aa988b30f7b556226f.ctex"]
 
 [params]
 

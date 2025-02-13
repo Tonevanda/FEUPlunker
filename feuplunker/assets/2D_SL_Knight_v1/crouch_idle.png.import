@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv5p5842bi8dm"
-path="res://.godot/imported/Enviroment.png-98189062674cb69807fc71d7fd56bd1e.ctex"
+uid="uid://byulrk3fyav0m"
+path="res://.godot/imported/crouch_idle.png-bef8c4b012cf4bd1f9804e4c046cb386.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Kauzz Cave Tiles/Enviroment.png"
-dest_files=["res://.godot/imported/Enviroment.png-98189062674cb69807fc71d7fd56bd1e.ctex"]
+source_file="res://assets/2D_SL_Knight_v1/crouch_idle.png"
+dest_files=["res://.godot/imported/crouch_idle.png-bef8c4b012cf4bd1f9804e4c046cb386.ctex"]
 
 [params]
 

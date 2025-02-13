@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b70murx5aiwsv"
-path="res://.godot/imported/Background A.png-ae39792e21d472cac41776d0ed1bfe09.ctex"
+uid="uid://cpiceucaqq2va"
+path="res://.godot/imported/Attacks.png-57d0e16131ca882e7bef71e6e40fb027.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Kauzz Cave Tiles/Background/Background A.png"
-dest_files=["res://.godot/imported/Background A.png-ae39792e21d472cac41776d0ed1bfe09.ctex"]
+source_file="res://assets/2D_SL_Knight_v1/Attacks.png"
+dest_files=["res://.godot/imported/Attacks.png-57d0e16131ca882e7bef71e6e40fb027.ctex"]
 
 [params]
 
