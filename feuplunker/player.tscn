@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cifmoabtjjr2s"]
+[gd_scene load_steps=23 format=3 uid="uid://cifmoabtjjr2s"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4haqi"]
 [ext_resource type="Texture2D" uid="uid://1cpfc4sv2evb" path="res://assets/2D_SL_Knight_v1/Run.png" id="1_oqvph"]
@@ -467,6 +467,41 @@ _data = {
 "run_right": SubResource("Animation_jsybi")
 }
 
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_biykc"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dogcr"]
+animation = &"run_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x5y8w"]
+animation = &"run_left"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_mtc55"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_dogcr")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_x5y8w")
+blend_point_1/pos = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0r4df"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gym4r"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_arl7g"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s7sb2"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_r6vah"]
+states/End/position = Vector2(1274, 119)
+states/IdleBlend/node = SubResource("AnimationNodeBlendSpace1D_biykc")
+states/IdleBlend/position = Vector2(444, 119)
+states/RunBlend/node = SubResource("AnimationNodeBlendSpace1D_mtc55")
+states/RunBlend/position = Vector2(971, 119)
+states/Start/position = Vector2(57, 127)
+transitions = ["RunBlend", "End", SubResource("AnimationNodeStateMachineTransition_0r4df"), "IdleBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_gym4r"), "RunBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_arl7g"), "Start", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_s7sb2")]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrjsw"]
 height = 48.0
 
@@ -474,7 +509,7 @@ height = 48.0
 script = ExtResource("1_4haqi")
 
 [node name="RunSprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_71ryf")
+texture = ExtResource("1_oqvph")
 flip_h = true
 hframes = 2
 vframes = 4
@@ -484,6 +519,13 @@ root_node = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_ekxf4")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../CollisionShape2D")
+tree_root = SubResource("AnimationNodeStateMachine_r6vah")
+anim_player = NodePath("../AnimationPlayer")
+parameters/IdleBlend/blend_position = 0
+parameters/RunBlend/blend_position = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
