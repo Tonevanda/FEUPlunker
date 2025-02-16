@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -400.0
 @onready var animationTree = get_node("AnimationTree")
 
 func _ready() -> void:
+	animationTree.active = true
 	pass
 	
 func _physics_process(delta: float) -> void:
@@ -22,14 +23,16 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
-		animationTree.set("parameters/conditions/Running",true)
-		animationTree.set("parameters/conditions/Idling",false)
+		animationTree["parameters/conditions/Idling"] = false
+		animationTree["parameters/conditions/Running"] = true
+		#animationTree.get("parameters/playback").travel("RunBlend")
 		animationTree["parameters/RunBlend/blend_position"] = direction
+		animationTree["parameters/IdleBlend/blend_position"] = direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		#animationTree.get("parameters/playback").travel("IdleBlend")
+		animationTree["parameters/conditions/Idling"] = true
+		animationTree["parameters/conditions/Running"] = false
 		
-		animationTree.set("parameters/conditions/Idling",true)
-		animationTree.set("parameters/conditions/Running",false)
-		animationTree["parameters/IdleBlend/blend_position"] = 1
 
 	move_and_slide()

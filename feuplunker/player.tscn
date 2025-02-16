@@ -480,41 +480,41 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_rdlf5")
 blend_point_1/pos = 1.0
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dogcr"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0l1wo"]
 animation = &"run_left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x5y8w"]
-animation = &"run_left"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hn2b1"]
+animation = &"run_right"
 
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_mtc55"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_dogcr")
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_o86hf"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_0l1wo")
 blend_point_0/pos = -1.0
-blend_point_1/node = SubResource("AnimationNodeAnimation_x5y8w")
+blend_point_1/node = SubResource("AnimationNodeAnimation_hn2b1")
 blend_point_1/pos = 1.0
 blend_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0r4df"]
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s7sb2"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qcdf4"]
-advance_mode = 2
-advance_condition = &"Running"
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kbp6c"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0fbuh"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ndvbn"]
 advance_mode = 2
 advance_condition = &"Idling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ersbi"]
+advance_mode = 2
+advance_condition = &"Running"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_r6vah"]
 states/End/position = Vector2(1609, 119)
 states/IdleBlend/node = SubResource("AnimationNodeBlendSpace1D_biykc")
 states/IdleBlend/position = Vector2(444, 119)
-states/RunBlend/node = SubResource("AnimationNodeBlendSpace1D_mtc55")
-states/RunBlend/position = Vector2(971, 119)
+states/RunBlend/node = SubResource("AnimationNodeBlendSpace1D_o86hf")
+states/RunBlend/position = Vector2(1028.22, 111)
 states/Start/position = Vector2(57, 127)
-transitions = ["RunBlend", "End", SubResource("AnimationNodeStateMachineTransition_0r4df"), "Start", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_s7sb2"), "IdleBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_qcdf4"), "RunBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_0fbuh")]
+transitions = ["Start", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_s7sb2"), "RunBlend", "End", SubResource("AnimationNodeStateMachineTransition_kbp6c"), "RunBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ndvbn"), "IdleBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_ersbi")]
+graph_offset = Vector2(113.04, 0)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrjsw"]
 height = 48.0
@@ -523,12 +523,13 @@ height = 48.0
 script = ExtResource("1_4haqi")
 
 [node name="RunSprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_71ryf")
+texture = ExtResource("1_oqvph")
+flip_h = true
 hframes = 2
 vframes = 4
-frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+active = false
 root_node = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_ekxf4")
@@ -537,11 +538,12 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../CollisionShape2D")
 tree_root = SubResource("AnimationNodeStateMachine_r6vah")
+advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/Idling = true
+parameters/conditions/Idling = false
 parameters/conditions/Running = false
-parameters/IdleBlend/blend_position = 0.00505054
-parameters/RunBlend/blend_position = 0.0
+parameters/IdleBlend/blend_position = -0.845441
+parameters/RunBlend/blend_position = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
