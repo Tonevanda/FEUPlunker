@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cifmoabtjjr2s"]
+[gd_scene load_steps=30 format=3 uid="uid://cifmoabtjjr2s"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4haqi"]
 [ext_resource type="Texture2D" uid="uid://1cpfc4sv2evb" path="res://assets/2D_SL_Knight_v1/Run.png" id="1_oqvph"]
@@ -480,6 +480,8 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_rdlf5")
 blend_point_1/pos = 1.0
 blend_mode = 1
 
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_ss5bc"]
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0l1wo"]
 animation = &"run_left"
 
@@ -506,14 +508,32 @@ advance_condition = &"Idling"
 advance_mode = 2
 advance_condition = &"Running"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_po8bw"]
+advance_mode = 2
+advance_condition = &"Jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qc1m3"]
+advance_mode = 2
+advance_condition = &"Jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sq605"]
+advance_mode = 2
+advance_condition = &"Idling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_276ed"]
+advance_mode = 2
+advance_condition = &"Running"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_r6vah"]
 states/End/position = Vector2(1609, 119)
 states/IdleBlend/node = SubResource("AnimationNodeBlendSpace1D_biykc")
 states/IdleBlend/position = Vector2(444, 119)
+states/JumpBlend/node = SubResource("AnimationNodeBlendSpace1D_ss5bc")
+states/JumpBlend/position = Vector2(723.04, 333)
 states/RunBlend/node = SubResource("AnimationNodeBlendSpace1D_o86hf")
 states/RunBlend/position = Vector2(1028.22, 111)
 states/Start/position = Vector2(57, 127)
-transitions = ["Start", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_s7sb2"), "RunBlend", "End", SubResource("AnimationNodeStateMachineTransition_kbp6c"), "RunBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ndvbn"), "IdleBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_ersbi")]
+transitions = ["Start", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_s7sb2"), "RunBlend", "End", SubResource("AnimationNodeStateMachineTransition_kbp6c"), "RunBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ndvbn"), "IdleBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_ersbi"), "IdleBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_po8bw"), "RunBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_qc1m3"), "JumpBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_sq605"), "JumpBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_276ed")]
 graph_offset = Vector2(113.04, 0)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrjsw"]
@@ -541,8 +561,10 @@ tree_root = SubResource("AnimationNodeStateMachine_r6vah")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/Idling = false
+parameters/conditions/Jumping = false
 parameters/conditions/Running = false
 parameters/IdleBlend/blend_position = -0.845441
+parameters/JumpBlend/blend_position = 0
 parameters/RunBlend/blend_position = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
