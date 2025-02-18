@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cifmoabtjjr2s"]
+[gd_scene load_steps=32 format=3 uid="uid://cifmoabtjjr2s"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4haqi"]
 [ext_resource type="Texture2D" uid="uid://1cpfc4sv2evb" path="res://assets/2D_SL_Knight_v1/Run.png" id="1_oqvph"]
@@ -480,7 +480,18 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_rdlf5")
 blend_point_1/pos = 1.0
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lqigo"]
+animation = &"jump_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bbb3d"]
+animation = &"jump_right"
+
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_ss5bc"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_lqigo")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_bbb3d")
+blend_point_1/pos = 1.0
+blend_mode = 2
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0l1wo"]
 animation = &"run_left"
