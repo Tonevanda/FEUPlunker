@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+@export var downAttackSpeed = 50
 @onready var animationPlayer = get_node("AnimationPlayer")
 @onready var animationTree = get_node("AnimationTree")
 var direction
@@ -17,8 +18,14 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		if direction:
 			x_movement()
+		if Input.is_action_just_pressed("sword"):
+			animationTree["parameters/conditions/airSword"] = true
+			animationTree["parameters/conditions/Jumping"] = false
+			
+			velocity += get_gravity() * delta * downAttackSpeed
 	else:
 		animationTree["parameters/conditions/Jumping"] = false
+		animationTree["parameters/conditions/airSword"] = false
 		# Handle jump.
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = JUMP_VELOCITY
@@ -26,6 +33,7 @@ func _physics_process(delta: float) -> void:
 			animationTree["parameters/conditions/Idling"] = false
 			animationTree["parameters/conditions/Running"] = false
 		elif direction:
+			
 			x_movement()
 			animationTree["parameters/conditions/Idling"] = false
 			animationTree["parameters/conditions/Running"] = true
@@ -38,6 +46,8 @@ func _physics_process(delta: float) -> void:
 
 func x_movement():
 	velocity.x = direction * SPEED
+	animationTree["parameters/AirAttackBlend/blend_position"] = direction
+	animationTree["parameters/AirAttackLandBlend/blend_position"] = direction
 	animationTree["parameters/RunBlend/blend_position"] = direction
 	animationTree["parameters/IdleBlend/blend_position"] = direction
 	animationTree["parameters/JumpBlend/blend_position"] = direction
