@@ -15,13 +15,12 @@ func _physics_process(delta: float) -> void:
 	direction = Input.get_axis("move_left", "move_right")
 	# Add the gravity.
 	if not is_on_floor():
+		animationTree["parameters/conditions/Jumping"] = false
 		velocity += get_gravity() * delta
 		if direction:
 			x_movement()
 		if Input.is_action_just_pressed("sword"):
 			animationTree["parameters/conditions/airSword"] = true
-			animationTree["parameters/conditions/Jumping"] = false
-			
 			velocity += get_gravity() * delta * downAttackSpeed
 	else:
 		animationTree["parameters/conditions/Jumping"] = false
@@ -51,3 +50,5 @@ func x_movement():
 	animationTree["parameters/RunBlend/blend_position"] = direction
 	animationTree["parameters/IdleBlend/blend_position"] = direction
 	animationTree["parameters/JumpBlend/blend_position"] = direction
+	animationTree["parameters/FallBlend/blend_position"] = direction
+	animationTree["parameters/LandBlend/blend_position"] = direction
