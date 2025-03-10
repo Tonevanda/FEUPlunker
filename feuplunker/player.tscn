@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cifmoabtjjr2s"]
+[gd_scene load_steps=63 format=3 uid="uid://cifmoabtjjr2s"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4haqi"]
 [ext_resource type="Texture2D" uid="uid://1cpfc4sv2evb" path="res://assets/2D_SL_Knight_v1/Run.png" id="1_oqvph"]
@@ -1164,6 +1164,10 @@ states/Start/position = Vector2(57, 127)
 transitions = ["Start", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_s7sb2"), "RunBlend", "End", SubResource("AnimationNodeStateMachineTransition_kbp6c"), "RunBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ndvbn"), "IdleBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_ersbi"), "IdleBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_po8bw"), "JumpBlend", "AirAttackBlend", SubResource("AnimationNodeStateMachineTransition_h88hp"), "AirAttackBlend", "AirAttackLandBlend", SubResource("AnimationNodeStateMachineTransition_vymh7"), "AirAttackLandBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_h4rbp"), "JumpBlend", "FallBlend", SubResource("AnimationNodeStateMachineTransition_sjgyo"), "RunBlend", "FallBlend", SubResource("AnimationNodeStateMachineTransition_c1a1w"), "FallBlend", "LandBlend", SubResource("AnimationNodeStateMachineTransition_qi57g"), "LandBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ghetj"), "LandBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_85fw6"), "RunBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_qc1m3"), "FallBlend", "AirAttackBlend", SubResource("AnimationNodeStateMachineTransition_coegc"), "LandBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_7ol6t"), "AirAttackLandBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_d0fff")]
 graph_offset = Vector2(113.04, 0)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2y2un"]
+radius = 1.66667
+height = 16.6667
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrjsw"]
 height = 48.0
 
@@ -1202,6 +1206,17 @@ parameters/JumpBlend/blend_position = 0
 parameters/LandBlend/blend_position = 0
 parameters/RunBlend/blend_position = 0
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 8)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 23.6667)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_2y2un")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_mrjsw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0gf77aglcb6c"]
+[gd_scene load_steps=4 format=3 uid="uid://c0gf77aglcb6c"]
 
 [ext_resource type="PackedScene" uid="uid://c5vwrtqx0vajx" path="res://level.tscn" id="2_k85it"]
 [ext_resource type="PackedScene" uid="uid://cifmoabtjjr2s" path="res://player.tscn" id="2_s4ar5"]
+[ext_resource type="PackedScene" uid="uid://cceo4o8nmspum" path="res://ui.tscn" id="3_abksi"]
 
 [node name="Game" type="Node2D"]
 
@@ -14,5 +15,11 @@ position = Vector2(25, 60)
 floor_max_angle = 1.37183
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-3, 3)
-zoom = Vector2(5.5, 5.5)
+scale = Vector2(1.66667, 1.66667)
+zoom = Vector2(3.345, 3.345)
+
+[node name="Ui" parent="Player/Camera2D" instance=ExtResource("3_abksi")]
+offset_left = -161.0
+offset_top = -87.0
+offset_right = -161.0
+offset_bottom = -87.0
