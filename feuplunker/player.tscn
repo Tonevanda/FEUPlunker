@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cifmoabtjjr2s"]
+[gd_scene load_steps=64 format=3 uid="uid://cifmoabtjjr2s"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4haqi"]
 [ext_resource type="Texture2D" uid="uid://1cpfc4sv2evb" path="res://assets/2D_SL_Knight_v1/Run.png" id="1_oqvph"]
@@ -1171,6 +1171,9 @@ height = 16.6667
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrjsw"]
 height = 48.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fiucw"]
+height = 46.6667
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_4haqi")
@@ -1206,17 +1209,28 @@ parameters/JumpBlend/blend_position = 0
 parameters/LandBlend/blend_position = 0
 parameters/RunBlend/blend_position = 0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Hurt area" type="Area2D" parent="."]
 position = Vector2(0, 8)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt area"]
 position = Vector2(0, 23.6667)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_2y2un")
+debug_color = Color(0.994649, 0, 0.218644, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_mrjsw")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Detection area" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection area"]
+position = Vector2(0, 8.33333)
+shape = SubResource("CapsuleShape2D_fiucw")
+debug_color = Color(0.720371, 0.249313, 1, 0.42)
+
+[connection signal="body_entered" from="Hurt area" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Detection area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="Detection area" to="." method="_on_detection_area_body_exited"]
