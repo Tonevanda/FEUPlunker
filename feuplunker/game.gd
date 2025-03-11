@@ -10,5 +10,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func exam_found(type):
-	exam[type] = exam.get(type, 0) + 1
+func exam_found(type, value):
+	exam[type] = exam.get(type, 0) + value
