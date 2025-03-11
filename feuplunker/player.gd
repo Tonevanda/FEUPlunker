@@ -79,10 +79,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if health == 0:
 		queue_free()
 
-
+#detecs tileset not pickups
 func _on_detection_area_body_entered(body: Node2D) -> void:
-	SPEED = 10
+		SPEED = 10.0
 
-
+#detecs tileset not pickups
 func _on_detection_area_body_exited(body: Node2D) -> void:
-	SPEED = 150.0
+		SPEED = 150.0

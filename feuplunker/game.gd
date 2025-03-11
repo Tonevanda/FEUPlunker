@@ -1,6 +1,5 @@
-extends Control
-@onready var healthBar = $HealthBar
-@onready var energyBar = $EnergyBar
+extends Node2D
+var exam = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,12 +8,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	energyBar.value -= 1
-	#print(energyBar.value)
 	pass
-	
-func damage():
-	healthBar.value -= 1
 
-func update_energy(value):
-	energyBar.value += value
+func exam_found(type):
+	if (exam.has(type)):
+		exam[type] +=1
+	else:
+		exam[type] = 1

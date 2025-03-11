@@ -25,6 +25,7 @@ texture_under = ExtResource("1_d5btw")
 texture_progress = ExtResource("2_ktyxc")
 
 [node name="EnergyBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
 offset_top = 8.0
 offset_right = 145.0
 offset_bottom = 153.0
