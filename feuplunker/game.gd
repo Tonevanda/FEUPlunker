@@ -11,7 +11,4 @@ func _process(delta: float) -> void:
 	pass
 
 func exam_found(type):
-	if (exam.has(type)):
-		exam[type] +=1
-	else:
-		exam[type] = 1
+	exam[type] = exam.get(type, 0) + 1
