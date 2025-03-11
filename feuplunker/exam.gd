@@ -1,6 +1,6 @@
 extends Node2D
 @export var examType: String
-var values = {"SO": 2}
+var values = {"SO": 9, "DA": 8, "SDLE":8.5, "PFL": 8.2}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

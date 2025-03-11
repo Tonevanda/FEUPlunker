@@ -12,3 +12,4 @@ func _process(delta: float) -> void:
 
 func exam_found(type, value):
 	exam[type] = exam.get(type, 0) + value
+	print(exam)
