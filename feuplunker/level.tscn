@@ -2318,7 +2318,7 @@ position = Vector2(396, 118)
 
 [node name="exam" parent="Exams" instance=ExtResource("2_scdpy")]
 position = Vector2(52, -81)
-examType = "SDLE"
+examType = "PFL"
 
 [node name="exam2" parent="Exams" instance=ExtResource("2_scdpy")]
 position = Vector2(-365, 79)
@@ -2330,7 +2330,7 @@ examType = "SDLE"
 
 [node name="exam4" parent="Exams" instance=ExtResource("2_scdpy")]
 position = Vector2(-222, 527)
-examType = "SDLE"
+examType = "PFL"
 
 [node name="exam5" parent="Exams" instance=ExtResource("2_scdpy")]
 position = Vector2(-110, 97)
