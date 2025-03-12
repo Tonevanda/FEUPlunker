@@ -11,10 +11,12 @@ var possibleExamNames = [
 	]
 
 var selectedExams = []
-var examValues = {}
+var examValues = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	select_random_exams()
+	print(selectedExams)
 	generate_exam_values()
 
 
@@ -23,13 +25,9 @@ func _process(delta: float) -> void:
 	pass
 
 func generate_exam_values():
-	select_random_exams()
-	
-	print(selectedExams)
-	
-	for exam in selectedExams:
-		var examValue = snappedf(randf_range(8.0,10.0), 0.1)
-		examValues[exam] = examValue
+	for i in range(selectedExams.size()):
+		var value = snappedf(randf_range(5.0, 10.0), 0.1)
+		examValues.append(value)
 	
 
 # Selects 4 random exams from the exam pool
@@ -46,8 +44,9 @@ func select_random_exams():
 	
 	selectedExams.shuffle()
 
-func get_exam_value(examName):
-	return examValues[examName]
+func get_exam_value():
+	examValues.shuffle()
+	return examValues.pop_back()
 
 func get_exam_name():
 	if selectedExams.size() > 0:

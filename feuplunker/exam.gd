@@ -14,9 +14,10 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if is_inside_tree():
-		var examValue = get_parent().get_exam_value(examName)
+		var examValue = get_parent().get_exam_value()
 		get_tree().get_root().get_child(0).exam_found(examName, examValue)
 		queue_free()
+
 
 # Selects a name for itself taking account the selected names by the parent node
 func _select_own_name():
