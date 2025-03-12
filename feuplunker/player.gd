@@ -10,45 +10,56 @@ var direction
 var health = 3
 var knockback = Vector2.ZERO
 
+# Coyote time (jump buffer) variables:
+var coyote_time := 0.15       # Maximum time (in seconds) allowed after leaving the ground to still jump.
+var coyote_timer := 0.0      # Timer that counts down when off the ground.
+var jumped := false
+
+
 func _ready() -> void:
 	animationTree.active = true
 	pass
 	
 func _physics_process(delta: float) -> void:
 	direction = Input.get_axis("move_left", "move_right")
-	# Add the gravity.
-	if not is_on_floor():
-		animationTree["parameters/conditions/Jumping"] = false
-		velocity += get_gravity() * delta
-		if direction:
-			x_movement()
-		if Input.is_action_just_pressed("sword"):
-			animationTree["parameters/conditions/airSword"] = true
-			velocity += get_gravity() * delta * downAttackSpeed
+	
+	# Update coyote timer:
+	if is_on_floor():
+		coyote_timer = coyote_time   # Reset timer when on the floor.
+		jumped = false
 	else:
-		animationTree["parameters/conditions/Jumping"] = false
-		animationTree["parameters/conditions/airSword"] = false
-		# Handle jump.
-		if Input.is_action_just_pressed("jump"):
-			ui.update_energy(-100)
-			velocity.y = JUMP_VELOCITY
-			animationTree["parameters/conditions/Jumping"] = true
-			animationTree["parameters/conditions/Idling"] = false
-			animationTree["parameters/conditions/Running"] = false
-		elif direction:
+		coyote_timer -= delta        # Count down when in the air.
+	
+	# Apply gravity:
+	velocity += get_gravity() * delta
+	
+	if Input.is_action_just_pressed("jump") and coyote_timer > 0:
+		ui.update_energy(-100)
+		velocity.y = JUMP_VELOCITY
+		animationTree["parameters/conditions/Jumping"] = true
+		jumped = true
+		coyote_timer = 0
+		
+	if direction != 0:
+		velocity.x = direction * SPEED
+		x_movement()
+		if is_on_floor():
 			ui.update_energy(-2)
-			x_movement()
 			animationTree["parameters/conditions/Idling"] = false
 			animationTree["parameters/conditions/Running"] = true
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			animationTree["parameters/conditions/Idling"] = true
-			animationTree["parameters/conditions/Running"] = false
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		animationTree["parameters/conditions/Idling"] = true
+		animationTree["parameters/conditions/Running"] = false
+	
+	# Apply knockback
 	velocity.x += knockback.x
 	velocity.y += knockback.y
-	knockback.x = move_toward(knockback.x, 0, SPEED*10)
-	knockback.y = move_toward(knockback.y, 0,SPEED*10)
+	knockback.x = move_toward(knockback.x, 0, SPEED * 10)
+	knockback.y = move_toward(knockback.y, 0, SPEED * 10)
+	
 	move_and_slide()
+	
 
 func x_movement():
 	velocity.x = direction * SPEED
@@ -61,9 +72,7 @@ func x_movement():
 	animationTree["parameters/LandBlend/blend_position"] = direction
 
 
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	health -= 1
 	ui.damage() 
 	if velocity.x != 0:
@@ -80,9 +89,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		queue_free()
 
 #detecs tileset not pickups
-func _on_detection_area_body_entered(body: Node2D) -> void:
+func _on_detection_area_body_entered(_body: Node2D) -> void:
 		SPEED = 10.0
 
 #detecs tileset not pickups
-func _on_detection_area_body_exited(body: Node2D) -> void:
+func _on_detection_area_body_exited(_body: Node2D) -> void:
 		SPEED = 150.0
