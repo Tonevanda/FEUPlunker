@@ -25,10 +25,15 @@ func _physics_process(delta: float) -> void:
 	
 	# Update coyote timer:
 	if is_on_floor():
+		animationTree["parameters/conditions/Jumping"] = false
+		animationTree["parameters/conditions/airSword"] = false
 		coyote_timer = coyote_time   # Reset timer when on the floor.
 		jumped = false
 	else:
 		coyote_timer -= delta        # Count down when in the air.
+		if Input.is_action_just_pressed("sword"):
+			animationTree["parameters/conditions/airSword"] = true
+			velocity += get_gravity() * delta * downAttackSpeed
 	
 	# Apply gravity:
 	velocity += get_gravity() * delta
@@ -41,7 +46,6 @@ func _physics_process(delta: float) -> void:
 		coyote_timer = 0
 		
 	if direction != 0:
-		velocity.x = direction * SPEED
 		x_movement()
 		if is_on_floor():
 			ui.update_energy(-2)
@@ -55,7 +59,7 @@ func _physics_process(delta: float) -> void:
 	# Apply knockback
 	velocity.x += knockback.x
 	velocity.y += knockback.y
-	knockback.x = move_toward(knockback.x, 0, SPEED * 10)
+	knockback.x = move_toward(knockback.x, 0, SPEED)
 	knockback.y = move_toward(knockback.y, 0, SPEED * 10)
 	
 	move_and_slide()
@@ -73,13 +77,13 @@ func x_movement():
 
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
-	health -= 1
+	health -= 0
 	ui.damage() 
 	if velocity.x != 0:
-		knockback.x = -velocity.x * 2
+		knockback.x = -velocity.x * 3
 		knockback.y = JUMP_VELOCITY
 	else:
-		knockback.x = -SPEED * 2
+		knockback.x = -SPEED * 3
 		knockback.y = JUMP_VELOCITY
 	animationTree["parameters/conditions/Jumping"] = true
 	animationTree["parameters/conditions/Idling"] = false
