@@ -3,14 +3,14 @@ var currentPlayerExams = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-    pass
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-    pass
+	pass
 
 func exam_found(examName, examValue):
-    currentPlayerExams[examName] = currentPlayerExams.get(examName, 0) + examValue
-    print(currentPlayerExams)
-    
+	currentPlayerExams[examName] = currentPlayerExams.get(examName, 0) + examValue
+	print(currentPlayerExams)
+	
