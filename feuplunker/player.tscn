@@ -1108,10 +1108,6 @@ advance_expression = "is_on_floor()"
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sjgyo"]
-switch_mode = 2
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c1a1w"]
 advance_mode = 2
 advance_expression = "!is_on_floor()"
@@ -1140,15 +1136,18 @@ advance_condition = &"airSword"
 advance_mode = 2
 advance_condition = &"Jumping"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d0fff"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vt70v"]
 advance_mode = 2
-advance_condition = &"Jumping"
+advance_expression = "velocity.y >0 || is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vdep1"]
+advance_condition = &"jumping"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_r6vah"]
 states/AirAttackBlend/node = SubResource("AnimationNodeBlendSpace1D_ru75n")
 states/AirAttackBlend/position = Vector2(370.04, 584)
 states/AirAttackLandBlend/node = SubResource("AnimationNodeBlendSpace1D_xhjar")
-states/AirAttackLandBlend/position = Vector2(279.04, 294)
+states/AirAttackLandBlend/position = Vector2(194.04, 212)
 states/End/position = Vector2(1609, 119)
 states/FallBlend/node = SubResource("AnimationNodeBlendSpace1D_1bw4h")
 states/FallBlend/position = Vector2(667.04, 394)
@@ -1161,8 +1160,8 @@ states/LandBlend/position = Vector2(1021.22, 425)
 states/RunBlend/node = SubResource("AnimationNodeBlendSpace1D_o86hf")
 states/RunBlend/position = Vector2(1021.22, 62)
 states/Start/position = Vector2(57, 127)
-transitions = ["Start", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_s7sb2"), "RunBlend", "End", SubResource("AnimationNodeStateMachineTransition_kbp6c"), "RunBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ndvbn"), "IdleBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_ersbi"), "IdleBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_po8bw"), "JumpBlend", "AirAttackBlend", SubResource("AnimationNodeStateMachineTransition_h88hp"), "AirAttackBlend", "AirAttackLandBlend", SubResource("AnimationNodeStateMachineTransition_vymh7"), "AirAttackLandBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_h4rbp"), "JumpBlend", "FallBlend", SubResource("AnimationNodeStateMachineTransition_sjgyo"), "RunBlend", "FallBlend", SubResource("AnimationNodeStateMachineTransition_c1a1w"), "FallBlend", "LandBlend", SubResource("AnimationNodeStateMachineTransition_qi57g"), "LandBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ghetj"), "LandBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_85fw6"), "RunBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_qc1m3"), "FallBlend", "AirAttackBlend", SubResource("AnimationNodeStateMachineTransition_coegc"), "LandBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_7ol6t"), "AirAttackLandBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_d0fff")]
-graph_offset = Vector2(113.04, 0)
+transitions = ["Start", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_s7sb2"), "RunBlend", "End", SubResource("AnimationNodeStateMachineTransition_kbp6c"), "RunBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ndvbn"), "IdleBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_ersbi"), "IdleBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_po8bw"), "JumpBlend", "AirAttackBlend", SubResource("AnimationNodeStateMachineTransition_h88hp"), "AirAttackBlend", "AirAttackLandBlend", SubResource("AnimationNodeStateMachineTransition_vymh7"), "AirAttackLandBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_h4rbp"), "RunBlend", "FallBlend", SubResource("AnimationNodeStateMachineTransition_c1a1w"), "FallBlend", "LandBlend", SubResource("AnimationNodeStateMachineTransition_qi57g"), "LandBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ghetj"), "LandBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_85fw6"), "RunBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_qc1m3"), "FallBlend", "AirAttackBlend", SubResource("AnimationNodeStateMachineTransition_coegc"), "LandBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_7ol6t"), "JumpBlend", "FallBlend", SubResource("AnimationNodeStateMachineTransition_vt70v"), "AirAttackLandBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_vdep1")]
+graph_offset = Vector2(-139.401, -111.621)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2y2un"]
 radius = 1.66667
@@ -1201,6 +1200,7 @@ parameters/conditions/Idling = false
 parameters/conditions/Jumping = false
 parameters/conditions/Running = false
 parameters/conditions/airSword = false
+parameters/conditions/jumping = false
 parameters/AirAttackBlend/blend_position = 0
 parameters/AirAttackLandBlend/blend_position = 0
 parameters/FallBlend/blend_position = 0

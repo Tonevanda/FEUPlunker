@@ -1,5 +1,5 @@
 extends Node2D
-@export var examName: String
+var examName: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,11 +8,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if is_inside_tree():
 		var examValue = get_parent().get_exam_value()
 		get_tree().get_root().get_child(0).exam_found(examName, examValue)
@@ -23,9 +23,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _select_own_name():
 	var parent = get_parent()
 	if parent and parent.has_method("get_exam_name"):
-		var name = parent.get_exam_name()
-		print(name)
-		examName = name
+		var selectedName = parent.get_exam_name()
+		print(selectedName)
+		examName = selectedName
 	else:
 		print("Error: Parent node does not have a valid exam name method")
 		
