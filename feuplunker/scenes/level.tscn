@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=4 uid="uid://c5vwrtqx0vajx"]
 
 [ext_resource type="Texture2D" uid="uid://cv5p5842bi8dm" path="res://assets/Kauzz Cave Tiles/Enviroment.png" id="1_e6fu8"]
-[ext_resource type="Script" path="res://exams.gd" id="2_mqqmp"]
-[ext_resource type="PackedScene" uid="uid://8e0sns3tehso" path="res://exam.tscn" id="2_scdpy"]
-[ext_resource type="PackedScene" uid="uid://dt6yl6gvgy5te" path="res://coffee.tscn" id="4_6nrlw"]
+[ext_resource type="Script" path="res://scripts/exams.gd" id="2_mqqmp"]
+[ext_resource type="PackedScene" uid="uid://8e0sns3tehso" path="res://scenes/exam.tscn" id="2_scdpy"]
+[ext_resource type="PackedScene" uid="uid://dt6yl6gvgy5te" path="res://scenes/coffee.tscn" id="4_6nrlw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y7e86"]
 texture = ExtResource("1_e6fu8")

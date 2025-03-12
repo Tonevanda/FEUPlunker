@@ -14,4 +14,4 @@ func exam_found(examName, examValue):
 	currentPlayerExams[examName] = currentPlayerExams.get(examName, 0) + examValue
 
 func calculate_final_score():
-	return currentPlayerExams.values().reduce(func(x,y): return x + y, 0 / currentPlayerExams.size())
+	return currentPlayerExams.values().reduce(func(x,y): return x + y, 0 / float(currentPlayerExams.size()))

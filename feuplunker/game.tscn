@@ -1,17 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://c0gf77aglcb6c"]
 
-[ext_resource type="Script" path="res://game.gd" id="1_mlmd7"]
-[ext_resource type="PackedScene" uid="uid://c5vwrtqx0vajx" path="res://level.tscn" id="2_k85it"]
-[ext_resource type="PackedScene" uid="uid://cifmoabtjjr2s" path="res://player.tscn" id="2_s4ar5"]
-[ext_resource type="PackedScene" uid="uid://cceo4o8nmspum" path="res://ui.tscn" id="3_abksi"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_q4pdc"]
+[ext_resource type="PackedScene" uid="uid://c5vwrtqx0vajx" path="res://scenes/level.tscn" id="2_pkww4"]
+[ext_resource type="PackedScene" uid="uid://cifmoabtjjr2s" path="res://scenes/player.tscn" id="3_7l4gk"]
+[ext_resource type="PackedScene" uid="uid://cceo4o8nmspum" path="res://scenes/ui.tscn" id="4_ly830"]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_mlmd7")
+script = ExtResource("1_q4pdc")
 
-[node name="Level" parent="." instance=ExtResource("2_k85it")]
+[node name="Level" parent="." instance=ExtResource("2_pkww4")]
 position = Vector2(1, -1)
 
-[node name="Player" parent="." instance=ExtResource("2_s4ar5")]
+[node name="Player" parent="." instance=ExtResource("3_7l4gk")]
 z_index = 1
 position = Vector2(25, 60)
 floor_max_angle = 1.37183
@@ -20,7 +20,7 @@ floor_max_angle = 1.37183
 scale = Vector2(1.66667, 1.66667)
 zoom = Vector2(3.345, 3.345)
 
-[node name="Ui" parent="Player/Camera2D" instance=ExtResource("3_abksi")]
+[node name="Ui" parent="Player/Camera2D" instance=ExtResource("4_ly830")]
 offset_left = -161.0
 offset_top = -87.0
 offset_right = -161.0

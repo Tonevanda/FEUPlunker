@@ -13,7 +13,6 @@ config_version=5
 config/name="FEUPlunker"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
 
 [display]
 
@@ -62,6 +61,7 @@ sword={
 2d_physics/layer_2="damage"
 2d_physics/layer_3="slow"
 2d_physics/layer_4="pickups"
+2d_physics/layer_5="Coffee"
 
 [rendering]
 

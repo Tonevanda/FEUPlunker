@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cceo4o8nmspum"]
 
 [ext_resource type="Texture2D" uid="uid://bhlyogdj3onb5" path="res://assets/Health Bar Asset Pack 2 by Adwit Rahman/health.png" id="1_d5btw"]
-[ext_resource type="Script" path="res://ui.gd" id="1_oq6j1"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_oq6j1"]
 [ext_resource type="Texture2D" uid="uid://c3gd2vely2i05" path="res://assets/Health Bar Asset Pack 2 by Adwit Rahman/health full.png" id="2_ktyxc"]
 [ext_resource type="Texture2D" uid="uid://depd6dubf0dvj" path="res://assets/Health Bar Asset Pack 2 by Adwit Rahman/energy.png" id="3_mfpe0"]
 [ext_resource type="Texture2D" uid="uid://ti7lodeaxgvk" path="res://assets/Health Bar Asset Pack 2 by Adwit Rahman/energy full.png" id="4_mteah"]
