@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://boxyxkm6egvv0"]
+
+[ext_resource type="Texture2D" uid="uid://d22uwkk1shwe" path="res://assets/Kauzz Cave Tiles/Background/Background Complete.png" id="1_sg52o"]
+[ext_resource type="Texture2D" uid="uid://c4en45vb5ogfo" path="res://assets/01_Flat_Theme/Sprites/UI_Flat_Banner01a.png" id="2_2pkut"]
+[ext_resource type="Script" path="res://scripts/play_button.gd" id="3_xavx0"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(7.22018, 5.69866)
+texture = ExtResource("1_sg52o")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 984.0
+offset_top = 800.0
+offset_right = 1056.0
+offset_bottom = 831.0
+scale = Vector2(13.6273, 15.0635)
+theme_override_colors/font_hover_color = Color(0.237844, 0.190863, 0.183877, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "PLAY"
+icon = ExtResource("2_2pkut")
+flat = true
+icon_alignment = 1
+script = ExtResource("3_xavx0")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 248.0
+offset_right = 894.0
+offset_bottom = 271.0
+scale = Vector2(14.2042, 14.2042)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "FEUPLUNKER"
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
