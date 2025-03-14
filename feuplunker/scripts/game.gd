@@ -13,5 +13,5 @@ func _process(_delta: float) -> void:
 func exam_found(examName, examValue):
 	currentPlayerExams[examName] = currentPlayerExams.get(examName, 0) + examValue
 
-func calculate_final_score():
+func calculate_score():
 	return currentPlayerExams.values().reduce(func(x,y): return x + y, 0 / float(currentPlayerExams.size()))
