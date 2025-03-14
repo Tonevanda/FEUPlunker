@@ -11,4 +11,5 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_area_2d_body_entered(_body: CharacterBody2D) -> void:
-	print("Hello")
+	# Call the UI function that displays the final score
+	pass
