@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var SPEED = 150.0
+var SPEED = 125.0
 const JUMP_VELOCITY = -300.0
 @export var downAttackSpeed = 50
 @onready var animationPlayer = get_node("AnimationPlayer")

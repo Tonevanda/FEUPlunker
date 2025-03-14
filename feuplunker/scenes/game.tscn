@@ -18,7 +18,7 @@ floor_max_angle = 1.37183
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 scale = Vector2(1.66667, 1.66667)
-zoom = Vector2(3.345, 3.345)
+zoom = Vector2(8.5, 8.5)
 
 [node name="Ui" parent="Player/Camera2D" instance=ExtResource("4_hy4sh")]
 offset_left = -161.0
