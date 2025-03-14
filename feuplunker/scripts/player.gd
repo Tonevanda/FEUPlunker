@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -300.0
 @export var downAttackSpeed = 50
 @onready var animationPlayer = get_node("AnimationPlayer")
 @onready var animationTree = get_node("AnimationTree")
-@onready var ui = $Camera2D/Ui
+@onready var ui = $Camera2D/CanvasLayer/Ui
 var direction
 var health = 3
 var knockback = Vector2.ZERO

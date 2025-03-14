@@ -1,5 +1,5 @@
 extends Node2D
-@onready var ui = get_node("/root/Game/Player/Camera2D/Ui")
+@onready var ui = get_node("/root/Game/Player/Camera2D/CanvasLayer/Ui")
 const ENERGY_REPLETED = 2000
 
 # Called when the node enters the scene tree for the first time.

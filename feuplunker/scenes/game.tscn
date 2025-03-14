@@ -10,22 +10,20 @@ script = ExtResource("1_rw72b")
 
 [node name="Level" parent="." instance=ExtResource("2_jtumh")]
 position = Vector2(1, -1)
+scale = Vector2(1.6, 1.6)
 
 [node name="Player" parent="." instance=ExtResource("3_my8ho")]
 z_index = 1
-position = Vector2(55, 59)
+position = Vector2(93, 93)
+scale = Vector2(1, 1)
 floor_max_angle = 1.37183
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(8.5, 8.5)
+zoom = Vector2(5.14, 5.14)
 
-[node name="Ui" parent="Player/Camera2D" instance=ExtResource("4_hy4sh")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -188.0
-offset_top = -107.0
-offset_right = 188.0
-offset_bottom = 107.0
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D"]
+
+[node name="Ui" parent="Player/Camera2D/CanvasLayer" instance=ExtResource("4_hy4sh")]
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
