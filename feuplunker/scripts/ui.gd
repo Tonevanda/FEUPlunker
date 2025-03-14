@@ -10,11 +10,16 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	energyBar.value -= 1
-	#print(energyBar.value)
+	if(energyBar.value <= 0):
+		# Show game over screen
+		print("death")
 	pass
 	
 func damage():
 	healthBar.value -= 1
+	if(healthBar.value <= 0):
+		# Show game over screen
+		print("fesu")
 
 func update_energy(value):
 	energyBar.value += value
