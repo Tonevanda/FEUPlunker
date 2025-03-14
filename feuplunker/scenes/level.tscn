@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://c5vwrtqx0vajx"]
+[gd_scene load_steps=12 format=4 uid="uid://c5vwrtqx0vajx"]
 
 [ext_resource type="Texture2D" uid="uid://cv5p5842bi8dm" path="res://assets/Kauzz Cave Tiles/Enviroment.png" id="1_e6fu8"]
 [ext_resource type="Script" path="res://scripts/exams.gd" id="2_mqqmp"]
 [ext_resource type="PackedScene" uid="uid://8e0sns3tehso" path="res://scenes/exam.tscn" id="2_scdpy"]
 [ext_resource type="PackedScene" uid="uid://dt6yl6gvgy5te" path="res://scenes/coffee.tscn" id="4_6nrlw"]
+[ext_resource type="PackedScene" uid="uid://b6adhqlndb1se" path="res://scenes/door.tscn" id="5_em4dg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y7e86"]
 texture = ExtResource("1_e6fu8")
@@ -2354,3 +2355,8 @@ position = Vector2(326, 437)
 
 [node name="Coffee3" parent="Coffees" instance=ExtResource("4_6nrlw")]
 position = Vector2(770, 645)
+
+[node name="Door" parent="." instance=ExtResource("5_em4dg")]
+z_index = 1
+position = Vector2(24, 60)
+scale = Vector2(1.57069, 2.002)
