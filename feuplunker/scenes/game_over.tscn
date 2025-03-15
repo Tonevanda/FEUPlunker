@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfiy38fwdxw6f"]
+
+[ext_resource type="FontFile" uid="uid://bgywqu8thfjuv" path="res://assets/Stepalange-x3BLm.otf" id="1_n0x0a"]
+[ext_resource type="Texture2D" uid="uid://bhusr7b844wv5" path="res://assets/01_Flat_Theme/Sprites/UI_Flat_Banner01a(1).png" id="2_hiwti"]
+[ext_resource type="Script" path="res://scripts/play_button.gd" id="3_4osgd"]
+
+[node name="Game Over" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.994
+offset_bottom = -0.112
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.75
+anchor_right = 0.5
+anchor_bottom = 0.75
+offset_left = -153.0
+offset_top = -228.056
+offset_right = 147.0
+offset_bottom = -26.112
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 0)
+theme_override_colors/font_hover_color = Color(0.237844, 0.190863, 0.183877, 1)
+theme_override_colors/font_pressed_color = Color(0.239216, 0.192157, 0.184314, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("1_n0x0a")
+theme_override_font_sizes/font_size = 65
+text = "Restart"
+icon = ExtResource("2_hiwti")
+flat = true
+icon_alignment = 1
+expand_icon = true
+text_direction = 1
+script = ExtResource("3_4osgd")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.25
+anchor_right = 0.5
+anchor_bottom = 0.25
+offset_left = -257.0
+offset_top = 147.648
+offset_right = 258.0
+offset_bottom = 254.296
+pivot_offset = Vector2(257.5, 0)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_n0x0a")
+theme_override_font_sizes/font_size = 110
+text = "Game Over"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

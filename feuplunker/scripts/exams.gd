@@ -54,12 +54,13 @@ func get_exam_name():
 		# Removes and retuns name from list
 		return selectedExams.pop_at(randi() % selectedExams.size())
 	return "KEY_UNKNOWN"
-	
+
+#Called by the magnifying glass powerup
 func display_values():
 	for N in self.get_children():
 		if N is not Timer:
 			N.get_node("Label").visible = true
-	timer.start(4)
+	timer.start(7)
 
 
 func _on_timer_timeout() -> void:

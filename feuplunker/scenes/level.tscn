@@ -2365,6 +2365,6 @@ position = Vector2(24, 60)
 scale = Vector2(1.57069, 2.002)
 
 [node name="magnifying glass" parent="." instance=ExtResource("6_1yfbv")]
-position = Vector2(119, 68)
+position = Vector2(264, 100)
 
 [connection signal="timeout" from="Exams/Timer" to="Exams" method="_on_timer_timeout"]

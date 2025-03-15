@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -360.0
 @onready var animationPlayer = get_node("AnimationPlayer")
 @onready var animationTree = get_node("AnimationTree")
 @onready var ui = $Camera2D/CanvasLayer/Ui
+var gameOver  = preload("res://scenes/game_over.tscn")
 var direction
 var health = 3
 var knockback = Vector2.ZERO
@@ -77,7 +78,7 @@ func x_movement():
 
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
-	health -= 0
+	health -= 1
 	ui.damage() 
 	if velocity.x != 0:
 		knockback.x = -velocity.x * 3
@@ -90,7 +91,10 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	animationTree["parameters/conditions/Running"] = false
 	position.x -= 2
 	if health == 0:
-		queue_free()
+		ui.queue_free()
+		var canvas = $Camera2D/CanvasLayer
+		canvas.add_child(gameOver.instantiate())
+		animationTree["parameters/conditions/Death"] = true
 
 #detecs tileset not pickups
 func _on_detection_area_body_entered(_body: Node2D) -> void:
