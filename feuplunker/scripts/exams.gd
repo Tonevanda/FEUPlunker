@@ -1,4 +1,5 @@
 extends Node2D
+@onready var timer = $Timer
 
 # This is ordered by the year the course is taken 
 var possibleExamNames = [
@@ -53,3 +54,16 @@ func get_exam_name():
 		# Removes and retuns name from list
 		return selectedExams.pop_at(randi() % selectedExams.size())
 	return "KEY_UNKNOWN"
+	
+func display_values():
+	for N in self.get_children():
+		if N is not Timer:
+			N.get_node("Label").visible = true
+	timer.start(4)
+
+
+func _on_timer_timeout() -> void:
+	for N in self.get_children():
+		if N is not Timer:
+			N.get_node("Label").visible = false
+	timer.stop()

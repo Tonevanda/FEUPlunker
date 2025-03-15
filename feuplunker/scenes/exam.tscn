@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://8e0sns3tehso"]
+[gd_scene load_steps=6 format=3 uid="uid://8e0sns3tehso"]
 
 [ext_resource type="Script" path="res://scripts/exam.gd" id="1_6ggm4"]
 [ext_resource type="Texture2D" uid="uid://t458uj71nkwp" path="res://assets/scroll/square.png" id="1_inm80"]
+[ext_resource type="FontFile" uid="uid://bgywqu8thfjuv" path="res://assets/Stepalange-x3BLm.otf" id="3_eu1uh"]
+[ext_resource type="Texture2D" uid="uid://c22rp6gceh058" path="res://assets/solid-black.jpg" id="4_2jael"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrfq0"]
 
@@ -18,5 +20,27 @@ shape = SubResource("RectangleShape2D_vrfq0")
 position = Vector2(-1.90735e-06, -5.36442e-07)
 scale = Vector2(0.019, 0.02)
 texture = ExtResource("1_inm80")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -16.0
+offset_right = 30.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.065, 0.065)
+pivot_offset = Vector2(30, 0)
+theme_override_fonts/font = ExtResource("3_eu1uh")
+theme_override_font_sizes/font_size = 64
+
+[node name="Sprite2D2" type="Sprite2D" parent="Label"]
+show_behind_parent = true
+position = Vector2(30.7692, 23.0769)
+scale = Vector2(0.188768, 0.133779)
+texture = ExtResource("4_2jael")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
