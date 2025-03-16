@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -360.0
 @onready var animationTree = get_node("AnimationTree")
 @onready var ui = $Camera2D/CanvasLayer/Ui
 var gameOver  = preload("res://scenes/game_over.tscn")
+var isGameOver = false
 var direction
 var health = 3
 var knockback = Vector2.ZERO
@@ -22,6 +23,10 @@ func _ready() -> void:
 	pass
 	
 func _physics_process(delta: float) -> void:
+	
+	if isGameOver:
+		return
+	
 	direction = Input.get_axis("move_left", "move_right")
 	
 	# Update coyote timer:
@@ -95,6 +100,7 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 		var canvas = $Camera2D/CanvasLayer
 		canvas.add_child(gameOver.instantiate())
 		animationTree["parameters/conditions/Death"] = true
+		game_over()
 
 #detecs tileset not pickups
 func _on_detection_area_body_entered(_body: Node2D) -> void:
@@ -103,3 +109,9 @@ func _on_detection_area_body_entered(_body: Node2D) -> void:
 #detecs tileset not pickups
 func _on_detection_area_body_exited(_body: Node2D) -> void:
 		SPEED = 150.0
+
+func game_over():
+	isGameOver = true
+	
+func game_restart():
+	isGameOver = false

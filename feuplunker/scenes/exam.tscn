@@ -23,7 +23,7 @@ texture = ExtResource("1_inm80")
 
 [node name="Label" type="Label" parent="."]
 visible = false
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -30.0
