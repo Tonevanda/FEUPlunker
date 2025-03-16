@@ -60,10 +60,11 @@ sword={
 [layer_names]
 
 2d_physics/layer_1="Player"
-2d_physics/layer_2="damage"
-2d_physics/layer_3="slow"
-2d_physics/layer_4="pickups"
+2d_physics/layer_2="Damage"
+2d_physics/layer_3="Slow"
+2d_physics/layer_4="Pickups"
 2d_physics/layer_5="Coffee"
+2d_physics/layer_6="Sword"
 
 [rendering]
 

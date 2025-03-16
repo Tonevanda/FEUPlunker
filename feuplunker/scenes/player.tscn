@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://cifmoabtjjr2s"]
+[gd_scene load_steps=74 format=3 uid="uid://cifmoabtjjr2s"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_4haqi"]
 [ext_resource type="Texture2D" uid="uid://1cpfc4sv2evb" path="res://assets/2D_SL_Knight_v1/Run.png" id="1_oqvph"]
@@ -69,6 +69,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Hurting area/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_58nsl"]
 resource_name = "air_attack_land_left"
@@ -128,6 +140,18 @@ tracks/4/path = NodePath("../Sprite:flip_h")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Hurting area/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -197,6 +221,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Hurting area/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_1ojo5"]
 resource_name = "air_attack_left"
@@ -261,6 +297,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Hurting area/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_3tgia"]
 resource_name = "air_attack_right"
@@ -320,6 +368,18 @@ tracks/4/path = NodePath("../Sprite:flip_h")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Hurting area/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1245,7 +1305,6 @@ advance_mode = 2
 advance_expression = "is_on_floor()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h4rbp"]
-switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c1a1w"]
@@ -1257,7 +1316,6 @@ advance_mode = 2
 advance_expression = "is_on_floor()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ghetj"]
-switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_85fw6"]
@@ -1291,33 +1349,35 @@ advance_condition = &"Death"
 advance_mode = 2
 advance_condition = &"Death"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2xkrl"]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ilsoh"]
 advance_mode = 2
 advance_condition = &"Death"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2xkrl"]
-
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_r6vah"]
 states/AirAttackBlend/node = SubResource("AnimationNodeBlendSpace1D_ru75n")
-states/AirAttackBlend/position = Vector2(370.04, 584)
+states/AirAttackBlend/position = Vector2(206.04, 576)
 states/AirAttackLandBlend/node = SubResource("AnimationNodeBlendSpace1D_xhjar")
-states/AirAttackLandBlend/position = Vector2(194.04, 212)
+states/AirAttackLandBlend/position = Vector2(223.04, 208)
 states/DeathBlend/node = SubResource("AnimationNodeBlendSpace1D_ni1qj")
 states/DeathBlend/position = Vector2(1328.44, 238.379)
 states/End/position = Vector2(1609, 119)
 states/FallBlend/node = SubResource("AnimationNodeBlendSpace1D_1bw4h")
-states/FallBlend/position = Vector2(667.04, 394)
+states/FallBlend/position = Vector2(675.04, 593)
 states/IdleBlend/node = SubResource("AnimationNodeBlendSpace1D_biykc")
 states/IdleBlend/position = Vector2(532, 62)
 states/JumpBlend/node = SubResource("AnimationNodeBlendSpace1D_ss5bc")
-states/JumpBlend/position = Vector2(443.04, 220)
+states/JumpBlend/position = Vector2(442.04, 347)
 states/LandBlend/node = SubResource("AnimationNodeBlendSpace1D_hmov3")
-states/LandBlend/position = Vector2(1021.22, 425)
+states/LandBlend/position = Vector2(1004.22, 500)
 states/RunBlend/node = SubResource("AnimationNodeBlendSpace1D_o86hf")
 states/RunBlend/position = Vector2(1021.22, 62)
 states/Start/position = Vector2(57, 127)
-transitions = ["Start", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_s7sb2"), "RunBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ndvbn"), "IdleBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_ersbi"), "IdleBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_po8bw"), "JumpBlend", "AirAttackBlend", SubResource("AnimationNodeStateMachineTransition_h88hp"), "AirAttackBlend", "AirAttackLandBlend", SubResource("AnimationNodeStateMachineTransition_vymh7"), "AirAttackLandBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_h4rbp"), "RunBlend", "FallBlend", SubResource("AnimationNodeStateMachineTransition_c1a1w"), "FallBlend", "LandBlend", SubResource("AnimationNodeStateMachineTransition_qi57g"), "LandBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ghetj"), "LandBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_85fw6"), "RunBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_qc1m3"), "FallBlend", "AirAttackBlend", SubResource("AnimationNodeStateMachineTransition_coegc"), "LandBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_7ol6t"), "JumpBlend", "FallBlend", SubResource("AnimationNodeStateMachineTransition_vt70v"), "AirAttackLandBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_vdep1"), "RunBlend", "DeathBlend", SubResource("AnimationNodeStateMachineTransition_i1a58"), "IdleBlend", "DeathBlend", SubResource("AnimationNodeStateMachineTransition_g865m"), "LandBlend", "DeathBlend", SubResource("AnimationNodeStateMachineTransition_ilsoh"), "DeathBlend", "End", SubResource("AnimationNodeStateMachineTransition_2xkrl")]
+transitions = ["Start", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_s7sb2"), "RunBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ndvbn"), "IdleBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_ersbi"), "IdleBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_po8bw"), "JumpBlend", "AirAttackBlend", SubResource("AnimationNodeStateMachineTransition_h88hp"), "AirAttackBlend", "AirAttackLandBlend", SubResource("AnimationNodeStateMachineTransition_vymh7"), "AirAttackLandBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_h4rbp"), "RunBlend", "FallBlend", SubResource("AnimationNodeStateMachineTransition_c1a1w"), "FallBlend", "LandBlend", SubResource("AnimationNodeStateMachineTransition_qi57g"), "LandBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ghetj"), "LandBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_85fw6"), "RunBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_qc1m3"), "FallBlend", "AirAttackBlend", SubResource("AnimationNodeStateMachineTransition_coegc"), "LandBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_7ol6t"), "JumpBlend", "FallBlend", SubResource("AnimationNodeStateMachineTransition_vt70v"), "AirAttackLandBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_vdep1"), "RunBlend", "DeathBlend", SubResource("AnimationNodeStateMachineTransition_i1a58"), "IdleBlend", "DeathBlend", SubResource("AnimationNodeStateMachineTransition_g865m"), "DeathBlend", "End", SubResource("AnimationNodeStateMachineTransition_2xkrl"), "LandBlend", "DeathBlend", SubResource("AnimationNodeStateMachineTransition_ilsoh")]
 graph_offset = Vector2(-15.5566, -111.621)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftb5d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2y2un"]
 radius = 1.66667
@@ -1331,6 +1391,7 @@ height = 46.6667
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.6, 0.6)
+collision_mask = 33
 script = ExtResource("1_4haqi")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -1365,6 +1426,16 @@ parameters/IdleBlend/blend_position = -0.845441
 parameters/JumpBlend/blend_position = 0
 parameters/LandBlend/blend_position = 0
 parameters/RunBlend/blend_position = 0
+
+[node name="Hurting area" type="Area2D" parent="."]
+position = Vector2(0, 8)
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurting area"]
+position = Vector2(0, 28.6667)
+shape = SubResource("RectangleShape2D_ftb5d")
+disabled = true
 
 [node name="Hurt area" type="Area2D" parent="."]
 position = Vector2(0, 8)
