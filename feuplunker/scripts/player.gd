@@ -33,15 +33,12 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		stop_animation("Jumping")
 		stop_animation("airSword")
-		#animationTree["parameters/conditions/Jumping"] = false
-		#animationTree["parameters/conditions/airSword"] = false
 		coyote_timer = coyote_time   # Reset timer when on the floor.
 		jumped = false
 	else:
 		coyote_timer -= delta        # Count down when in the air.
 		if Input.is_action_just_pressed("sword"):
 			play_animation("airSword")
-			#animationTree["parameters/conditions/airSword"] = true
 			velocity += get_gravity() * delta * downAttackSpeed
 	
 	# Apply gravity:
@@ -51,7 +48,6 @@ func _physics_process(delta: float) -> void:
 		ui.update_energy(-100)
 		velocity.y = JUMP_VELOCITY
 		play_animation("Jumping")
-		#animationTree["parameters/conditions/Jumping"] = true
 		jumped = true
 		coyote_timer = 0
 		
@@ -61,14 +57,11 @@ func _physics_process(delta: float) -> void:
 			ui.update_energy(-2)
 			stop_animation("Idling")
 			play_animation("Running")
-			#animationTree["parameters/conditions/Idling"] = false
-			#animationTree["parameters/conditions/Running"] = true
+
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		play_animation("Idling")
 		stop_animation("Running")
-		#animationTree["parameters/conditions/Idling"] = true
-		#animationTree["parameters/conditions/Running"] = false
 	
 	# Apply knockback
 	velocity.x += knockback.x
@@ -97,9 +90,6 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	play_animation("Jumping")
 	stop_animation("Idling")
 	stop_animation("Running")
-	#animationTree["parameters/conditions/Jumping"] = true
-	#animationTree["parameters/conditions/Idling"] = false
-	#animationTree["parameters/conditions/Running"] = false
 	position.x -= 2
 	
 	if health == 0:
@@ -107,7 +97,6 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 		var canvas = $Camera2D/CanvasLayer
 		canvas.add_child(gameOver.instantiate())
 		play_animation("Death")
-		#animationTree["parameters/conditions/Death"] = true
 		game_over()
 
 #detecs tileset not pickups
@@ -127,19 +116,6 @@ func game_restart():
 func play_animation(animationName: String):
 	var animationPath = "parameters/conditions/%s" % animationName
 	animationTree[animationPath] = true
-	"""
-	match animation:
-		"Death":
-			animationTree["parameters/conditions/Death"] = true
-		"Idling":
-			animationTree["parameters/conditions/Idling"] = true
-		"Running":
-			animationTree["parameters/conditions/Running"] = true
-		"Airsword":
-			animationTree["parameters/conditions/airSword"] = true
-		"Jumping":
-			animationTree["parameters/conditions/Jumping"] = true
-	"""
 
 func stop_animation(animationName: String):
 	var animationPath = "parameters/conditions/%s" % animationName
