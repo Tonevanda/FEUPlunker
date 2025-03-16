@@ -31,14 +31,17 @@ func _physics_process(delta: float) -> void:
 	
 	# Update coyote timer:
 	if is_on_floor():
-		animationTree["parameters/conditions/Jumping"] = false
-		animationTree["parameters/conditions/airSword"] = false
+		stop_animation("Jumping")
+		stop_animation("airSword")
+		#animationTree["parameters/conditions/Jumping"] = false
+		#animationTree["parameters/conditions/airSword"] = false
 		coyote_timer = coyote_time   # Reset timer when on the floor.
 		jumped = false
 	else:
 		coyote_timer -= delta        # Count down when in the air.
 		if Input.is_action_just_pressed("sword"):
-			animationTree["parameters/conditions/airSword"] = true
+			play_animation("airSword")
+			#animationTree["parameters/conditions/airSword"] = true
 			velocity += get_gravity() * delta * downAttackSpeed
 	
 	# Apply gravity:
@@ -47,7 +50,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and coyote_timer > 0:
 		ui.update_energy(-100)
 		velocity.y = JUMP_VELOCITY
-		animationTree["parameters/conditions/Jumping"] = true
+		play_animation("Jumping")
+		#animationTree["parameters/conditions/Jumping"] = true
 		jumped = true
 		coyote_timer = 0
 		
@@ -55,12 +59,16 @@ func _physics_process(delta: float) -> void:
 		x_movement()
 		if is_on_floor():
 			ui.update_energy(-2)
-			animationTree["parameters/conditions/Idling"] = false
-			animationTree["parameters/conditions/Running"] = true
+			stop_animation("Idling")
+			play_animation("Running")
+			#animationTree["parameters/conditions/Idling"] = false
+			#animationTree["parameters/conditions/Running"] = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		animationTree["parameters/conditions/Idling"] = true
-		animationTree["parameters/conditions/Running"] = false
+		play_animation("Idling")
+		stop_animation("Running")
+		#animationTree["parameters/conditions/Idling"] = true
+		#animationTree["parameters/conditions/Running"] = false
 	
 	# Apply knockback
 	velocity.x += knockback.x
@@ -73,13 +81,7 @@ func _physics_process(delta: float) -> void:
 
 func x_movement():
 	velocity.x = direction * SPEED
-	animationTree["parameters/AirAttackBlend/blend_position"] = direction
-	animationTree["parameters/AirAttackLandBlend/blend_position"] = direction
-	animationTree["parameters/RunBlend/blend_position"] = direction
-	animationTree["parameters/IdleBlend/blend_position"] = direction
-	animationTree["parameters/JumpBlend/blend_position"] = direction
-	animationTree["parameters/FallBlend/blend_position"] = direction
-	animationTree["parameters/LandBlend/blend_position"] = direction
+	blend_animations()
 
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
@@ -91,15 +93,21 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	else:
 		knockback.x = -SPEED * 3
 		knockback.y = JUMP_VELOCITY
-	animationTree["parameters/conditions/Jumping"] = true
-	animationTree["parameters/conditions/Idling"] = false
-	animationTree["parameters/conditions/Running"] = false
+	
+	play_animation("Jumping")
+	stop_animation("Idling")
+	stop_animation("Running")
+	#animationTree["parameters/conditions/Jumping"] = true
+	#animationTree["parameters/conditions/Idling"] = false
+	#animationTree["parameters/conditions/Running"] = false
 	position.x -= 2
+	
 	if health == 0:
 		ui.queue_free()
 		var canvas = $Camera2D/CanvasLayer
 		canvas.add_child(gameOver.instantiate())
-		animationTree["parameters/conditions/Death"] = true
+		play_animation("Death")
+		#animationTree["parameters/conditions/Death"] = true
 		game_over()
 
 #detecs tileset not pickups
@@ -115,3 +123,33 @@ func game_over():
 	
 func game_restart():
 	isGameOver = false
+
+func play_animation(animationName: String):
+	var animationPath = "parameters/conditions/%s" % animationName
+	animationTree[animationPath] = true
+	"""
+	match animation:
+		"Death":
+			animationTree["parameters/conditions/Death"] = true
+		"Idling":
+			animationTree["parameters/conditions/Idling"] = true
+		"Running":
+			animationTree["parameters/conditions/Running"] = true
+		"Airsword":
+			animationTree["parameters/conditions/airSword"] = true
+		"Jumping":
+			animationTree["parameters/conditions/Jumping"] = true
+	"""
+
+func stop_animation(animationName: String):
+	var animationPath = "parameters/conditions/%s" % animationName
+	animationTree[animationPath] = false
+
+func blend_animations():
+	animationTree["parameters/AirAttackBlend/blend_position"] = direction
+	animationTree["parameters/AirAttackLandBlend/blend_position"] = direction
+	animationTree["parameters/RunBlend/blend_position"] = direction
+	animationTree["parameters/IdleBlend/blend_position"] = direction
+	animationTree["parameters/JumpBlend/blend_position"] = direction
+	animationTree["parameters/FallBlend/blend_position"] = direction
+	animationTree["parameters/LandBlend/blend_position"] = direction
