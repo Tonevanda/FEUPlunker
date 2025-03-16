@@ -23,7 +23,3 @@ func end_game():
 	
 	var canvas = $Player/Camera2D/CanvasLayer
 	canvas.add_child(gameOver.instantiate())
-	
-	var player = get_child(1)
-	player.play_animation("Death")
-	player.game_over()

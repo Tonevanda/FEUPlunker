@@ -30,6 +30,8 @@ func _physics_process(delta: float) -> void:
 	# Check if energy has run out, in that case it's game over
 	if ui.get_energy() <= 0:
 		get_parent().end_game()
+		play_animation("Death")
+		game_over()
 	
 	direction = Input.get_axis("move_left", "move_right")
 	
@@ -87,6 +89,8 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	
 	if health == 0:
 		get_parent().end_game()
+		play_animation("Death")
+		game_over()
 	
 	if velocity.x != 0:
 		knockback.x = -velocity.x * 3
