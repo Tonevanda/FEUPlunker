@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://cifmoabtjjr2s"]
+[gd_scene load_steps=73 format=3 uid="uid://cifmoabtjjr2s"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_4haqi"]
 [ext_resource type="Texture2D" uid="uid://1cpfc4sv2evb" path="res://assets/2D_SL_Knight_v1/Run.png" id="1_oqvph"]
@@ -6,69 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bofq1m463wqgx" path="res://assets/2D_SL_Knight_v1/Idle.png" id="3_71ryf"]
 [ext_resource type="Texture2D" uid="uid://7msagfxj7j88" path="res://assets/2D_SL_Knight_v1/attack_from_air.png" id="5_qgwvs"]
 [ext_resource type="Texture2D" uid="uid://ch1uuse80c388" path="res://assets/2D_SL_Knight_v1/Death.png" id="6_05vy1"]
-
-[sub_resource type="Animation" id="Animation_eujqq"]
-resource_name = "Death"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("6_05vy1")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Sprite:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Sprite:vframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../Sprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
 
 [sub_resource type="Animation" id="Animation_32tdh"]
 length = 0.001
@@ -1033,14 +970,141 @@ tracks/4/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_eujqq"]
+resource_name = "death_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_05vy1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Sprite:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Sprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_pr8xf"]
+resource_name = "death_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_05vy1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Sprite:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Sprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ekxf4"]
 _data = {
-"Death": SubResource("Animation_eujqq"),
 "RESET": SubResource("Animation_32tdh"),
 "air_attack_land_left": SubResource("Animation_58nsl"),
 "air_attack_land_right": SubResource("Animation_vaobv"),
 "air_attack_left": SubResource("Animation_1ojo5"),
 "air_attack_right": SubResource("Animation_3tgia"),
+"death_left": SubResource("Animation_pr8xf"),
+"death_right": SubResource("Animation_eujqq"),
 "fall_left": SubResource("Animation_majqf"),
 "fall_right": SubResource("Animation_7t4x0"),
 "idle_left": SubResource("Animation_g6lsw"),
@@ -1079,8 +1143,18 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_nkkqt")
 blend_point_1/pos = 1.0
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dphsy"]
-animation = &"Death"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_66of0"]
+animation = &"death_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_awt6i"]
+animation = &"death_right"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_ni1qj"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_66of0")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_awt6i")
+blend_point_1/pos = 1.0
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nx5e2"]
 animation = &"fall_left"
@@ -1209,45 +1283,41 @@ advance_expression = "velocity.y >0 || is_on_floor()"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vdep1"]
 advance_condition = &"jumping"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6l7b2"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rppjk"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i1a58"]
 advance_mode = 2
 advance_condition = &"Death"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7mayl"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g865m"]
 advance_mode = 2
 advance_condition = &"Death"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c1b7g"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ilsoh"]
 advance_mode = 2
 advance_condition = &"Death"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_botck"]
-advance_mode = 2
-advance_condition = &"Death"
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2xkrl"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_r6vah"]
 states/AirAttackBlend/node = SubResource("AnimationNodeBlendSpace1D_ru75n")
 states/AirAttackBlend/position = Vector2(370.04, 584)
 states/AirAttackLandBlend/node = SubResource("AnimationNodeBlendSpace1D_xhjar")
 states/AirAttackLandBlend/position = Vector2(194.04, 212)
-states/Death/node = SubResource("AnimationNodeAnimation_dphsy")
-states/Death/position = Vector2(1316.6, 152.379)
+states/DeathBlend/node = SubResource("AnimationNodeBlendSpace1D_ni1qj")
+states/DeathBlend/position = Vector2(1328.44, 238.379)
 states/End/position = Vector2(1609, 119)
 states/FallBlend/node = SubResource("AnimationNodeBlendSpace1D_1bw4h")
 states/FallBlend/position = Vector2(667.04, 394)
 states/IdleBlend/node = SubResource("AnimationNodeBlendSpace1D_biykc")
 states/IdleBlend/position = Vector2(532, 62)
 states/JumpBlend/node = SubResource("AnimationNodeBlendSpace1D_ss5bc")
-states/JumpBlend/position = Vector2(553.04, 254)
+states/JumpBlend/position = Vector2(443.04, 220)
 states/LandBlend/node = SubResource("AnimationNodeBlendSpace1D_hmov3")
 states/LandBlend/position = Vector2(1021.22, 425)
 states/RunBlend/node = SubResource("AnimationNodeBlendSpace1D_o86hf")
 states/RunBlend/position = Vector2(1021.22, 62)
 states/Start/position = Vector2(57, 127)
-transitions = ["Start", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_s7sb2"), "RunBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ndvbn"), "IdleBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_ersbi"), "IdleBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_po8bw"), "JumpBlend", "AirAttackBlend", SubResource("AnimationNodeStateMachineTransition_h88hp"), "AirAttackBlend", "AirAttackLandBlend", SubResource("AnimationNodeStateMachineTransition_vymh7"), "AirAttackLandBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_h4rbp"), "RunBlend", "FallBlend", SubResource("AnimationNodeStateMachineTransition_c1a1w"), "FallBlend", "LandBlend", SubResource("AnimationNodeStateMachineTransition_qi57g"), "LandBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ghetj"), "LandBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_85fw6"), "RunBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_qc1m3"), "FallBlend", "AirAttackBlend", SubResource("AnimationNodeStateMachineTransition_coegc"), "LandBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_7ol6t"), "JumpBlend", "FallBlend", SubResource("AnimationNodeStateMachineTransition_vt70v"), "AirAttackLandBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_vdep1"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_6l7b2"), "LandBlend", "Death", SubResource("AnimationNodeStateMachineTransition_rppjk"), "RunBlend", "Death", SubResource("AnimationNodeStateMachineTransition_7mayl"), "IdleBlend", "Death", SubResource("AnimationNodeStateMachineTransition_c1b7g"), "JumpBlend", "Death", SubResource("AnimationNodeStateMachineTransition_botck")]
-graph_offset = Vector2(87.1435, -111.621)
+transitions = ["Start", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_s7sb2"), "RunBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ndvbn"), "IdleBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_ersbi"), "IdleBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_po8bw"), "JumpBlend", "AirAttackBlend", SubResource("AnimationNodeStateMachineTransition_h88hp"), "AirAttackBlend", "AirAttackLandBlend", SubResource("AnimationNodeStateMachineTransition_vymh7"), "AirAttackLandBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_h4rbp"), "RunBlend", "FallBlend", SubResource("AnimationNodeStateMachineTransition_c1a1w"), "FallBlend", "LandBlend", SubResource("AnimationNodeStateMachineTransition_qi57g"), "LandBlend", "IdleBlend", SubResource("AnimationNodeStateMachineTransition_ghetj"), "LandBlend", "RunBlend", SubResource("AnimationNodeStateMachineTransition_85fw6"), "RunBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_qc1m3"), "FallBlend", "AirAttackBlend", SubResource("AnimationNodeStateMachineTransition_coegc"), "LandBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_7ol6t"), "JumpBlend", "FallBlend", SubResource("AnimationNodeStateMachineTransition_vt70v"), "AirAttackLandBlend", "JumpBlend", SubResource("AnimationNodeStateMachineTransition_vdep1"), "RunBlend", "DeathBlend", SubResource("AnimationNodeStateMachineTransition_i1a58"), "IdleBlend", "DeathBlend", SubResource("AnimationNodeStateMachineTransition_g865m"), "LandBlend", "DeathBlend", SubResource("AnimationNodeStateMachineTransition_ilsoh"), "DeathBlend", "End", SubResource("AnimationNodeStateMachineTransition_2xkrl")]
+graph_offset = Vector2(-15.5566, -111.621)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2y2un"]
 radius = 1.66667
@@ -1289,6 +1359,7 @@ parameters/conditions/airSword = false
 parameters/conditions/jumping = false
 parameters/AirAttackBlend/blend_position = 0
 parameters/AirAttackLandBlend/blend_position = 0
+parameters/DeathBlend/blend_position = 0
 parameters/FallBlend/blend_position = 0
 parameters/IdleBlend/blend_position = -0.845441
 parameters/JumpBlend/blend_position = 0

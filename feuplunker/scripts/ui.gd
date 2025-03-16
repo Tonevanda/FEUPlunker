@@ -20,3 +20,6 @@ func update_energy(value):
 
 func get_energy():
 	return energyBar.value
+
+func get_health():
+	return healthBar.value

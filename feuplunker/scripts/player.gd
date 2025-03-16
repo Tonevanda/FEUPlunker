@@ -23,12 +23,8 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 		
-	# Check if game is over, so player can't control anything
-	if isGameOver:
-		return
-	
 	# Check if energy has run out, in that case it's game over
-	if ui.get_energy() <= 0:
+	if not isGameOver and ui.get_energy() <= 0:
 		get_parent().end_game()
 		play_animation("Death")
 		game_over()
@@ -51,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	velocity += get_gravity() * delta
 	
 	if Input.is_action_just_pressed("jump") and coyote_timer > 0:
-		ui.update_energy(-100)
+		update_energy(-100)
 		velocity.y = JUMP_VELOCITY
 		play_animation("Jumping")
 		jumped = true
@@ -60,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	if direction != 0:
 		x_movement()
 		if is_on_floor():
-			ui.update_energy(-2)
+			update_energy(-2)
 			stop_animation("Idling")
 			play_animation("Running")
 
@@ -85,24 +81,23 @@ func x_movement():
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	health -= 1
-	ui.damage() 
-	
-	if health == 0:
-		get_parent().end_game()
-		play_animation("Death")
-		game_over()
-	
-	if velocity.x != 0:
-		knockback.x = -velocity.x * 3
-		knockback.y = JUMP_VELOCITY
-	else:
-		knockback.x = -SPEED * 3
-		knockback.y = JUMP_VELOCITY
-	
-	play_animation("Jumping")
-	stop_animation("Idling")
-	stop_animation("Running")
-	position.x -= 2
+	if not isGameOver:
+		ui.damage() 
+		if ui.get_health() == 0:
+			get_parent().end_game()
+			play_animation("Death")
+			game_over()
+		if velocity.x != 0:
+			knockback.x = -velocity.x * 3
+			knockback.y = JUMP_VELOCITY
+		else:
+			knockback.x = -SPEED * 3
+			knockback.y = JUMP_VELOCITY
+		
+		play_animation("Jumping")
+		stop_animation("Idling")
+		stop_animation("Running")
+		position.x -= 2
 
 #detecs tileset not pickups
 func _on_detection_area_body_entered(_body: Node2D) -> void:
@@ -134,3 +129,8 @@ func blend_animations():
 	animationTree["parameters/JumpBlend/blend_position"] = direction
 	animationTree["parameters/FallBlend/blend_position"] = direction
 	animationTree["parameters/LandBlend/blend_position"] = direction
+	animationTree["parameters/DeathBlend/blend_position"] = direction
+
+func update_energy(energy):
+	if not isGameOver:
+		ui.update_energy(energy)
