@@ -46,14 +46,14 @@ func _physics_process(delta: float) -> void:
 	# Apply gravity:
 	velocity += get_gravity() * delta
 	
-	if Input.is_action_just_pressed("jump") and coyote_timer > 0:
+	if not isGameOver and Input.is_action_just_pressed("jump") and coyote_timer > 0:
 		update_energy(-100)
 		velocity.y = JUMP_VELOCITY
 		play_animation("Jumping")
 		jumped = true
 		coyote_timer = 0
 		
-	if direction != 0:
+	if not isGameOver and direction != 0:
 		x_movement()
 		if is_on_floor():
 			update_energy(-2)
@@ -72,7 +72,6 @@ func _physics_process(delta: float) -> void:
 	knockback.y = move_toward(knockback.y, 0, SPEED * 10)
 	
 	move_and_slide()
-	
 
 func x_movement():
 	velocity.x = direction * SPEED
