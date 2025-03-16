@@ -2,8 +2,7 @@ extends CharacterBody2D
 
 var SPEED = 130.0
 const JUMP_VELOCITY = -360.0
-@export var downAttackSpeed = 50
-@onready var animationPlayer = get_node("AnimationPlayer")
+const DOWN_ATTACK_SPEED = 50
 @onready var animationTree = get_node("AnimationTree")
 @onready var ui = $Camera2D/CanvasLayer/Ui
 var gameOver  = preload("res://scenes/game_over.tscn")
@@ -23,9 +22,16 @@ func _ready() -> void:
 	pass
 	
 func _physics_process(delta: float) -> void:
-	
+		
+	# Check if game is over, so player can't control anything
 	if isGameOver:
 		return
+	
+	# Check if energy has run out, in that case it's game over
+	if ui.get_energy() <= 0:
+		get_parent().end_game()
+		play_animation("Death")
+		game_over()
 	
 	direction = Input.get_axis("move_left", "move_right")
 	
@@ -39,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		coyote_timer -= delta        # Count down when in the air.
 		if Input.is_action_just_pressed("sword"):
 			play_animation("airSword")
-			velocity += get_gravity() * delta * downAttackSpeed
+			velocity += get_gravity() * delta * DOWN_ATTACK_SPEED
 	
 	# Apply gravity:
 	velocity += get_gravity() * delta
@@ -80,6 +86,12 @@ func x_movement():
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	health -= 1
 	ui.damage() 
+	
+	if health == 0:
+		get_parent().end_game()
+		play_animation("Death")
+		game_over()
+	
 	if velocity.x != 0:
 		knockback.x = -velocity.x * 3
 		knockback.y = JUMP_VELOCITY
@@ -91,13 +103,6 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	stop_animation("Idling")
 	stop_animation("Running")
 	position.x -= 2
-	
-	if health == 0:
-		ui.queue_free()
-		var canvas = $Camera2D/CanvasLayer
-		canvas.add_child(gameOver.instantiate())
-		play_animation("Death")
-		game_over()
 
 #detecs tileset not pickups
 func _on_detection_area_body_entered(_body: Node2D) -> void:
