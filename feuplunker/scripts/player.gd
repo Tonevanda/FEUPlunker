@@ -41,6 +41,7 @@ func _physics_process(delta: float) -> void:
 		coyote_timer -= delta        # Count down when in the air.
 		if Input.is_action_just_pressed("sword"):
 			play_animation("airSword")
+			stop_animation("Jumping")
 			velocity += get_gravity() * delta * DOWN_ATTACK_SPEED
 	
 	# Apply gravity:
