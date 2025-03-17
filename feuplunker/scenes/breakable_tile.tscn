@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyfbqg8qhk7h0"]
 
-[ext_resource type="Script" path="res://scenes/breakable_tile.gd" id="1_60kme"]
+[ext_resource type="Script" path="res://scripts/breakable_tile.gd" id="1_60kme"]
 [ext_resource type="Texture2D" uid="uid://latvsi44pb5j" path="res://assets/Kauzz Cave Tiles/Breakable tile.png" id="1_wjyut"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsdnh"]
