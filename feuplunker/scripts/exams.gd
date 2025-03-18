@@ -17,7 +17,7 @@ var examValues = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	select_random_exams()
-	print(selectedExams)
+	#print(selectedExams)
 	generate_exam_values()
 
 

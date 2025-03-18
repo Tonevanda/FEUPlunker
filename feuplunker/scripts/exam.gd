@@ -27,7 +27,6 @@ func _select_own_name():
 	var parent = get_parent()
 	if parent and parent.has_method("get_exam_name"):
 		var selectedName = parent.get_exam_name()
-		print(selectedName)
 		examName = selectedName
 	else:
 		print("Error: Parent node does not have a valid exam name method")
