@@ -1,7 +1,8 @@
 extends Node2D
 var currentPlayerExams = {}
 @onready var ui = $Player/Camera2D/CanvasLayer/Ui
-var gameOver  = preload("res://scenes/game_over.tscn")
+var gameOver = preload("res://scenes/game_over.tscn")
+var victory = preload("res://scenes/victory.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,8 +26,8 @@ func end_game():
 	canvas.add_child(gameOver.instantiate())
 
 func win_game():
-	get_child(2).visible = true
-	
 	ui.queue_free()
 	
+	var canvas = $Player/Camera2D/CanvasLayer
+	canvas.add_child(victory.instantiate())
 	get_child(1).game_over()

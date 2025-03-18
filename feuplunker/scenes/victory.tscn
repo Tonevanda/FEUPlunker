@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://bb45n56qex35"]
+[gd_scene load_steps=7 format=4 uid="uid://bb45n56qex35"]
 
 [ext_resource type="Texture2D" uid="uid://cv5p5842bi8dm" path="res://assets/Kauzz Cave Tiles/Enviroment.png" id="1_0etnh"]
 [ext_resource type="FontFile" uid="uid://bgywqu8thfjuv" path="res://assets/Stepalange-x3BLm.otf" id="1_6rkml"]
 [ext_resource type="Texture2D" uid="uid://bhusr7b844wv5" path="res://assets/01_Flat_Theme/Sprites/UI_Flat_Banner01a(1).png" id="3_aaofu"]
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="4_1iv7y"]
-[ext_resource type="Script" path="res://scripts/main_menu_button.gd" id="5_lb8v7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17chp"]
 texture = ExtResource("1_0etnh")
@@ -735,7 +734,6 @@ texture = ExtResource("1_0etnh")
 sources/0 = SubResource("TileSetAtlasSource_17chp")
 
 [node name="Victory" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -764,12 +762,16 @@ tile_map_data = PackedByteArray("AAAVAAQAAAANAAEAAAAWAAQAAAANAAEAAAAXAAQAAAANAAE
 tile_set = SubResource("TileSet_07hed")
 
 [node name="Score" type="Label" parent="."]
-layout_mode = 0
-offset_left = 713.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -310.5
 offset_top = 350.0
-offset_right = 992.0
+offset_right = -10.5
 offset_bottom = 411.0
 scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(299.35, 0)
 theme_override_fonts/font = ExtResource("1_6rkml")
 theme_override_font_sizes/font_size = 64
 text = "Final Score:"
@@ -843,7 +845,6 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 text_direction = 1
-script = ExtResource("5_lb8v7")
 
 [connection signal="pressed" from="Restart" to="Restart" method="_on_pressed"]
 [connection signal="pressed" from="Exit" to="Restart" method="_on_exit_pressed"]
