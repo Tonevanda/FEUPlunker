@@ -23,3 +23,10 @@ func end_game():
 	
 	var canvas = $Player/Camera2D/CanvasLayer
 	canvas.add_child(gameOver.instantiate())
+
+func win_game():
+	get_child(2).visible = true
+	
+	ui.queue_free()
+	
+	get_child(1).game_over()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0gf77aglcb6c"]
+[gd_scene load_steps=6 format=3 uid="uid://c0gf77aglcb6c"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_rw72b"]
 [ext_resource type="PackedScene" uid="uid://c5vwrtqx0vajx" path="res://scenes/level.tscn" id="2_jtumh"]
 [ext_resource type="PackedScene" uid="uid://cifmoabtjjr2s" path="res://scenes/player.tscn" id="3_my8ho"]
 [ext_resource type="PackedScene" uid="uid://cceo4o8nmspum" path="res://scenes/ui.tscn" id="4_hy4sh"]
+[ext_resource type="PackedScene" uid="uid://bb45n56qex35" path="res://scenes/victory.tscn" id="5_22srg"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_rw72b")
@@ -26,3 +27,5 @@ zoom = Vector2(5.14, 5.14)
 [node name="Ui" parent="Player/Camera2D/CanvasLayer" instance=ExtResource("4_hy4sh")]
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="Victory" parent="." instance=ExtResource("5_22srg")]

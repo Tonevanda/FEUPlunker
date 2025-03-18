@@ -12,4 +12,5 @@ func _process(_delta: float) -> void:
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	# Call the UI function that displays the final score
-	pass
+	var gameNode = get_tree().get_root().get_child(0)
+	gameNode.win_game()

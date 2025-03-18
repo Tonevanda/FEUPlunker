@@ -7,12 +7,5 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	pass
-
-func _on_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
-
-
-func _on_exit_pressed() -> void:
-	get_tree().change_scene_to_file("res://main_menu.tscn")
