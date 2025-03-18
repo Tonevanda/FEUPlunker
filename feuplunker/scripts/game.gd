@@ -17,7 +17,10 @@ func exam_found(examName, examValue):
 	currentPlayerExams[examName] = currentPlayerExams.get(examName, 0) + examValue
 
 func calculate_score():
-	return currentPlayerExams.values().reduce(func(x,y): return x + y, 0 / float(currentPlayerExams.size()))
+	if currentPlayerExams.size() == 0:
+		return 0
+	else:
+		return currentPlayerExams.values().reduce(func(x, y): return x + y, 0) / float(currentPlayerExams.size())
 
 func end_game():
 	ui.queue_free()
@@ -29,5 +32,7 @@ func win_game():
 	ui.queue_free()
 	
 	var canvas = $Player/Camera2D/CanvasLayer
-	canvas.add_child(victory.instantiate())
+	var victoryNode = victory.instantiate()
+	victoryNode.get_child(2).get_child(0).text = str(calculate_score()).pad_decimals(1)
+	canvas.add_child(victoryNode)
 	get_child(1).game_over()
