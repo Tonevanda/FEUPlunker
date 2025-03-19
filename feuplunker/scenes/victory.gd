@@ -13,5 +13,8 @@ func _process(_delta: float) -> void:
 func set_score_value(score):
 	$"Score/Score Value".text = score
 
+func set_victory_status(status):
+	$Victory.text = status
+	
 func set_timer_value(time):
 	$"Time/Time Value".text = time

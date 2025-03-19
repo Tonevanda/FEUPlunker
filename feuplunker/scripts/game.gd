@@ -50,9 +50,11 @@ func win_game():
 	
 	var finalScore = calculate_score()
 	if finalScore < 9.5:
-		victoryNode.set_score_value(str(finalScore).pad_decimals(1) + " (You Failed!!)")
+		victoryNode.set_score_value(str(finalScore).pad_decimals(1))
+		victoryNode.set_victory_status("You Failed!!")
 	else:
-		victoryNode.set_score_value(str(finalScore).pad_decimals(1) + " (You Passed!!)")
+		victoryNode.set_score_value(str(finalScore).pad_decimals(1))
+		victoryNode.set_victory_status("You Passed!!")
 	
 	victoryNode.set_timer_value(str(final_time).pad_decimals(1) + " seconds")
 	
