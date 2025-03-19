@@ -1,6 +1,5 @@
-extends Node2D
-@onready var ui = get_node("/root/Game/Player/Camera2D/CanvasLayer/Ui")
-const ENERGY_REPLETED = 3000
+extends Control
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,7 +10,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func _on_area_2d_body_entered(_body: Node2D) -> void:
-	if is_inside_tree():
-		ui.update_energy(ENERGY_REPLETED)
-		queue_free()
+func set_score_value(score):
+	$"Score/Score Value".text = score
+
+func set_timer_value(time):
+	$"Time/Time Value".text = time
