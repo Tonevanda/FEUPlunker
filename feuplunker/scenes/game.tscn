@@ -30,5 +30,5 @@ size_flags_vertical = 0
 
 [node name="BGM Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_cieyh")
-volume_db = -10.0
+volume_db = -7.0
 autoplay = true

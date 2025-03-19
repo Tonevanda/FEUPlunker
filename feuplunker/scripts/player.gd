@@ -101,7 +101,7 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 
 #detecs tileset not pickups
 func _on_detection_area_body_entered(_body: Node2D) -> void:
-		SPEED = 10.0
+		SPEED = 30.0
 
 #detecs tileset not pickups
 func _on_detection_area_body_exited(_body: Node2D) -> void:
