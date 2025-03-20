@@ -1393,7 +1393,6 @@ height = 46.6667
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.6, 0.6)
-collision_mask = 33
 script = ExtResource("1_4haqi")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -1431,7 +1430,7 @@ parameters/RunBlend/blend_position = 0
 [node name="Hurting area" type="Area2D" parent="."]
 position = Vector2(0, 8)
 collision_layer = 32
-collision_mask = 32
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurting area"]
 position = Vector2(0, 28.6667)
@@ -1440,6 +1439,7 @@ disabled = true
 
 [node name="Hurt area" type="Area2D" parent="."]
 position = Vector2(0, 8)
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt area"]
@@ -1453,6 +1453,7 @@ position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_mrjsw")
 
 [node name="Detection area" type="Area2D" parent="."]
+collision_layer = 0
 collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection area"]

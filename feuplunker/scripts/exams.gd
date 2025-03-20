@@ -60,7 +60,7 @@ func display_values():
 	for N in self.get_children():
 		if N is not Timer:
 			N.get_node("Label").visible = true
-	timer.start(7)
+	timer.start(30)
 
 
 func _on_timer_timeout() -> void:
