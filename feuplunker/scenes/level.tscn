@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=4 uid="uid://c5vwrtqx0vajx"]
 
 [ext_resource type="Texture2D" uid="uid://cv5p5842bi8dm" path="res://assets/Kauzz Cave Tiles/Enviroment.png" id="1_e6fu8"]
-[ext_resource type="Script" path="res://scripts/exams.gd" id="2_mqqmp"]
+[ext_resource type="Script" uid="uid://bkxwueylxh2fh" path="res://scripts/exams.gd" id="2_mqqmp"]
 [ext_resource type="PackedScene" uid="uid://8e0sns3tehso" path="res://scenes/exam.tscn" id="2_scdpy"]
 [ext_resource type="PackedScene" uid="uid://dt6yl6gvgy5te" path="res://scenes/coffee.tscn" id="4_6nrlw"]
 [ext_resource type="PackedScene" uid="uid://b6adhqlndb1se" path="res://scenes/door.tscn" id="5_em4dg"]
@@ -795,8 +795,7 @@ texture = ExtResource("1_e6fu8")
 44:25/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_uth3s"]
-physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 0
+physics_layer_0/collision_layer = 3
 sources/0 = SubResource("TileSetAtlasSource_y7e86")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yuncd"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://67w8yn75s40n"]
 
-[ext_resource type="Script" path="res://scripts/magnifying_glass.gd" id="1_yfad5"]
+[ext_resource type="Script" uid="uid://cip6pdbpmc2ax" path="res://scripts/magnifying_glass.gd" id="1_yfad5"]
 [ext_resource type="Texture2D" uid="uid://b6hsmasjjhnov" path="res://assets/magnifying-glass.png" id="2_eqdtm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8jd5j"]
