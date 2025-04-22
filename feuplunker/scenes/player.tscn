@@ -1,6 +1,6 @@
 [gd_scene load_steps=74 format=3 uid="uid://cifmoabtjjr2s"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_4haqi"]
+[ext_resource type="Script" uid="uid://bo8el82lscjqr" path="res://scripts/player.gd" id="1_4haqi"]
 [ext_resource type="Texture2D" uid="uid://1cpfc4sv2evb" path="res://assets/2D_SL_Knight_v1/Run.png" id="1_oqvph"]
 [ext_resource type="Texture2D" uid="uid://codtcme0vrync" path="res://assets/2D_SL_Knight_v1/Jump.png" id="2_4roj0"]
 [ext_resource type="Texture2D" uid="uid://bofq1m463wqgx" path="res://assets/2D_SL_Knight_v1/Idle.png" id="3_71ryf"]
@@ -1158,23 +1158,23 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ekxf4"]
 _data = {
-"RESET": SubResource("Animation_32tdh"),
-"air_attack_land_left": SubResource("Animation_58nsl"),
-"air_attack_land_right": SubResource("Animation_vaobv"),
-"air_attack_left": SubResource("Animation_1ojo5"),
-"air_attack_right": SubResource("Animation_3tgia"),
-"death_left": SubResource("Animation_pr8xf"),
-"death_right": SubResource("Animation_eujqq"),
-"fall_left": SubResource("Animation_majqf"),
-"fall_right": SubResource("Animation_7t4x0"),
-"idle_left": SubResource("Animation_g6lsw"),
-"idle_right": SubResource("Animation_wfi1a"),
-"jump_left": SubResource("Animation_olaqb"),
-"jump_right": SubResource("Animation_ymyki"),
-"land_left": SubResource("Animation_xmh1v"),
-"land_right": SubResource("Animation_jf25l"),
-"run_left": SubResource("Animation_85t0c"),
-"run_right": SubResource("Animation_jsybi")
+&"RESET": SubResource("Animation_32tdh"),
+&"air_attack_land_left": SubResource("Animation_58nsl"),
+&"air_attack_land_right": SubResource("Animation_vaobv"),
+&"air_attack_left": SubResource("Animation_1ojo5"),
+&"air_attack_right": SubResource("Animation_3tgia"),
+&"death_left": SubResource("Animation_pr8xf"),
+&"death_right": SubResource("Animation_eujqq"),
+&"fall_left": SubResource("Animation_majqf"),
+&"fall_right": SubResource("Animation_7t4x0"),
+&"idle_left": SubResource("Animation_g6lsw"),
+&"idle_right": SubResource("Animation_wfi1a"),
+&"jump_left": SubResource("Animation_olaqb"),
+&"jump_right": SubResource("Animation_ymyki"),
+&"land_left": SubResource("Animation_xmh1v"),
+&"land_right": SubResource("Animation_jf25l"),
+&"run_left": SubResource("Animation_85t0c"),
+&"run_right": SubResource("Animation_jsybi")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mirha"]
@@ -1406,7 +1406,7 @@ vframes = 4
 active = false
 root_node = NodePath("")
 libraries = {
-"": SubResource("AnimationLibrary_ekxf4")
+&"": SubResource("AnimationLibrary_ekxf4")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

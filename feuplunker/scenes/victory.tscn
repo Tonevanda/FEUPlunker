@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cv5p5842bi8dm" path="res://assets/Kauzz Cave Tiles/Enviroment.png" id="1_0etnh"]
 [ext_resource type="FontFile" uid="uid://bgywqu8thfjuv" path="res://assets/Stepalange-x3BLm.otf" id="1_6rkml"]
-[ext_resource type="Script" path="res://scenes/victory.gd" id="1_tymsa"]
+[ext_resource type="Script" uid="uid://kg56hk6t0uaq" path="res://scenes/victory.gd" id="1_tymsa"]
 [ext_resource type="Texture2D" uid="uid://bhusr7b844wv5" path="res://assets/01_Flat_Theme/Sprites/UI_Flat_Banner01a(1).png" id="3_aaofu"]
-[ext_resource type="Script" path="res://scripts/game_over.gd" id="4_1iv7y"]
+[ext_resource type="Script" uid="uid://d2dh8avxtutr0" path="res://scripts/game_over.gd" id="4_1iv7y"]
 [ext_resource type="Texture2D" uid="uid://bx6mtbfthoy1u" path="res://assets/victoryBackroundAlphaMissing.png" id="4_j6ews"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_v3lnn"]
@@ -852,11 +852,11 @@ grow_vertical = 2
 pivot_offset = Vector2(150, 0)
 focus_mode = 0
 theme_override_colors/font_hover_color = Color(0.237844, 0.190863, 0.183877, 1)
-theme_override_colors/font_pressed_color = Color(0.239216, 0.192157, 0.184314, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.239216, 0.192157, 0.184314, 1)
 theme_override_fonts/font = ExtResource("1_6rkml")
 theme_override_font_sizes/font_size = 65
 text = "Restart"
@@ -883,11 +883,11 @@ grow_vertical = 2
 pivot_offset = Vector2(150, 0)
 focus_mode = 0
 theme_override_colors/font_hover_color = Color(0.237844, 0.190863, 0.183877, 1)
-theme_override_colors/font_pressed_color = Color(0.239216, 0.192157, 0.184314, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.239216, 0.192157, 0.184314, 1)
 theme_override_fonts/font = ExtResource("1_6rkml")
 theme_override_font_sizes/font_size = 65
 text = "Exit"
